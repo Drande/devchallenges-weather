@@ -1,17 +1,120 @@
+@import "/src/index.scss";
+
 .container {
     min-height: 100vh;
-    width: 100vw;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
 .content {
+    color: #E7E7EB;
     width: 100%;
-    @media screen and (min-width: 60rem) {
-        width: calc(100% - 30rem);
+    padding: 3rem 0 8rem 0;
+    gap: 3rem;
+    @media screen and (min-width: $breakpoint) {
+        width: calc(100% - $sidebarWidth);
+        padding: 8rem 0 8rem 0;
+        gap: 4rem;
     }
     display: flex;
     flex-direction: column;
     background-color: #100E1D;
+    align-items: center;
+}
+
+.forecast-grid {
+    display: grid;
+    width: 100%;
+    justify-content: center;
+    grid-auto-rows: 180px;
+    grid-template-columns: repeat(auto-fit, 120px);
+    gap: 2rem 1.5rem;
+    @media screen and (min-width: $breakpoint) {
+        padding: 0 3rem 0 3rem;
+    }
+}
+
+.weather-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding: 0 1.5rem;
+    @media screen and (min-width: $breakpoint) {
+        gap: 2rem;
+    }
+    color: #E7E7EB;
+    width: 100%;
+}
+
+.row-stats {
+    gap: 3rem;
+    @media screen and (min-width: $breakpoint) {
+        gap: 1.5rem;
+    }
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(328px, 100%), 1fr));
+}
+
+.bigheader-1 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 75px;
+}
+
+.bigheader-2 {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 75px;
+}
+
+.bar {
+    width: 100%;
+    height: 8px;
+    background-color:#E7E7EB;
+    border-radius: 80px;
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: var(--humidity);
+        height: 8px;
+        z-index: 1;
+        background: #FFEC65;
+        border-radius: 80px;
+    }
+}
+
+.title {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 28px;
+    color: #E7E7EB;
+    margin: 0;
+}
+
+.wind {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.round-icon {
+    user-select: none;
+    transform: rotate(var(--wind-angle));
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    font-size: 16px;
 }

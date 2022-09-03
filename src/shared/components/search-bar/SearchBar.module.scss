@@ -1,10 +1,82 @@
+@import "/src/index.scss";
+
 .sidebar {
     display: flex;
     flex-direction: column;
+    align-items: center;
     background-color: #1E213A;
     height: auto;
+    min-height: 100vh;
     width: 100%;
-    @media screen and (min-width: 60rem) {
-        width: 30rem;
+    padding-bottom: 6rem;
+    @media screen and (min-width: $breakpoint) {
+        padding-bottom: 3rem;
+        width: $sidebarWidth;
     }
+}
+
+.icons-wrapper {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 375/326;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon {
+    width: 40%;
+    @media screen and (min-width: $breakpoint) {
+        width: 40%;
+    }
+}
+
+.clouds {
+    position: absolute;
+    opacity: 0.1;
+    height: 100%;
+    object-fit: cover;
+}
+
+.temp {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 144px;
+    line-height: 169px;
+    color: #E7E7EB;
+    span {
+        color: #A09FB1;
+        font-size: 4rem;
+    }
+}
+
+.state {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    color: #A09FB1;
+}
+
+.date {
+    font-family: 'Raleway';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21px;
+    text-align: center;
+    color: #88869D;
+}
+
+.info-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2.25rem;
+    flex: 1;
 }
